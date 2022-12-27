@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "528167592d7870cf4d1ea2ea92b1f566",
+    "packages": [
+        {
+            "name": "iranimij/wp-options-manager",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iranimij/wp-options-manager.git",
+                "reference": "6add8dcd90ba11a3e27b833a1d0a6bdb919a198d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iranimij/wp-options-manager/zipball/6add8dcd90ba11a3e27b833a1d0a6bdb919a198d",
+                "reference": "6add8dcd90ba11a3e27b833a1d0a6bdb919a198d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helper-functions.php"
+                ],
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "iranimij",
+                    "email": "iranimij@gmail.com"
+                }
+            ],
+            "description": "You can easily manage your plugin's options by this library",
+            "support": {
+                "issues": "https://github.com/iranimij/wp-options-manager/issues",
+                "source": "https://github.com/iranimij/wp-options-manager/tree/1.0.6"
+            },
+            "time": "2022-12-07T13:34:40+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

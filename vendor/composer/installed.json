@@ -1,0 +1,49 @@
+{
+    "packages": [
+        {
+            "name": "iranimij/wp-options-manager",
+            "version": "1.0.6",
+            "version_normalized": "1.0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iranimij/wp-options-manager.git",
+                "reference": "6add8dcd90ba11a3e27b833a1d0a6bdb919a198d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iranimij/wp-options-manager/zipball/6add8dcd90ba11a3e27b833a1d0a6bdb919a198d",
+                "reference": "6add8dcd90ba11a3e27b833a1d0a6bdb919a198d",
+                "shasum": ""
+            },
+            "time": "2022-12-07T13:34:40+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/helper-functions.php"
+                ],
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "iranimij",
+                    "email": "iranimij@gmail.com"
+                }
+            ],
+            "description": "You can easily manage your plugin's options by this library",
+            "support": {
+                "issues": "https://github.com/iranimij/wp-options-manager/issues",
+                "source": "https://github.com/iranimij/wp-options-manager/tree/1.0.6"
+            },
+            "install-path": "../iranimij/wp-options-manager"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

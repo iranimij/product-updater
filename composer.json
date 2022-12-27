@@ -1,0 +1,5 @@
+{
+  "require": {
+    "iranimij/wp-options-manager": "^1.0"
+  }
+}
