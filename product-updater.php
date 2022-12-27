@@ -185,7 +185,8 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 		public function admin_init() {
 			$this->load_files(
                 [
-
+					'admin/settings',
+					'admin/price-calculator'
                 ]
             );
 		}
