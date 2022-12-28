@@ -52,11 +52,15 @@ class Price_Calculator {
 		$product   = wc_get_product_id_by_sku( $file_data[0] );
 		$product   = wc_get_product( $product );
 
-		if ( $product->get_meta( 'the_price_is_updated' ) ) {
+		if ( is_bool( $product ) ) {
 			return false;
 		}
 
-		if ( ! is_bool( $product ) && 'variable' === $product->get_type() ) {
+		if ( ! empty( $product->get_meta( 'the_price_is_updated' ) ) ) {
+			return false;
+		}
+
+		if ( 'variable' === $product->get_type() ) {
 			foreach ( $product->get_children() as $child ) {
 				$variation = wc_get_product( $child );
 
@@ -70,7 +74,7 @@ class Price_Calculator {
 			}
 		}
 
-		if ( ! is_bool( $product ) && 'simple' === $product->get_type() ) {
+		if ( 'simple' === $product->get_type() ) {
 			$product->set_regular_price( $this->calculate_regular_price( $file_data[1], $file_data[2] ) );
 			$product->update_meta_data( 'the_price_is_updated', true );
 			$product->save();
