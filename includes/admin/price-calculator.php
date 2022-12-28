@@ -12,7 +12,8 @@ class Price_Calculator {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		update_post_meta( 11, 'the_price_is_updated', false );
+//		update_post_meta( 11, 'the_price_is_updated', false );
+//		var_dump(get_post_meta(34,'the_price_is_updated',true));die();
 		add_action( 'product_updater_calculate_new_prices', [ $this, 'calculate_new_prices' ] );
 	}
 
@@ -55,7 +56,21 @@ class Price_Calculator {
 			return false;
 		}
 
-		if ( ! is_bool( $product ) ) {
+		if ( ! is_bool( $product ) && 'variable' === $product->get_type() ) {
+			foreach ( $product->get_children() as $child ) {
+				$variation = wc_get_product( $child );
+
+				if ( ! empty( $variation->get_meta( 'the_price_is_updated' ) ) ) {
+					continue;
+				}
+
+				$variation->set_regular_price( $this->calculate_regular_price( $file_data[1], $file_data[2] ) );
+				$variation->update_meta_data( 'the_price_is_updated', true );
+				$variation->save();
+			}
+		}
+
+		if ( ! is_bool( $product ) && 'simple' === $product->get_type() ) {
 			$product->set_regular_price( $this->calculate_regular_price( $file_data[1], $file_data[2] ) );
 			$product->update_meta_data( 'the_price_is_updated', true );
 			$product->save();

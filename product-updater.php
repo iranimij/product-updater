@@ -202,6 +202,8 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 				[ 'admin/price-calculator' ]
 			);
 
+			do_action('product_updater_calculate_new_prices');
+
 			load_plugin_textdomain( 'product-updater', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		}
 
