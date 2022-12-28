@@ -13,6 +13,7 @@ class ComposerStaticInita2322ad25a27d5798acbe2c321419ec1
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Iranimij\\WpOptionsManager\\Wp_Options_Manager' => __DIR__ . '/..' . '/iranimij/wp-options-manager/src/wp-options-manager.php',
+        'Shuchkin\\SimpleXLSXGen' => __DIR__ . '/..' . '/shuchkin/simplexlsxgen/src/SimpleXLSXGen.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

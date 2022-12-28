@@ -1,5 +1,6 @@
 {
   "require": {
-    "iranimij/wp-options-manager": "^1.0"
+    "iranimij/wp-options-manager": "^1.0",
+    "shuchkin/simplexlsxgen": "^1.3"
   }
 }

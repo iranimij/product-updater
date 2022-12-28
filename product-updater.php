@@ -6,7 +6,7 @@
  * @package           Product-updater
  *
  * @wordpress-plugin
- * Plugin Name:       Product updater
+ * Plugin Name:       Product Updater
  * Plugin URI:        http://www.iranimij.com
  * Description:       Updating product prices by a FTP.
  * Version:           1.0.0
@@ -167,6 +167,10 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 			if ( ! wp_next_scheduled ( 'product_updater_calculate_new_prices' ) ) {
 				wp_schedule_event( time(), 'hourly', 'product_updater_calculate_new_prices' );
 			}
+
+			if ( ! wp_next_scheduled ( 'product_updater_generate_orders_sheet' ) ) {
+				wp_schedule_event( time(), 'daily', 'product_updater_generate_orders_sheet' );
+			}
 		}
 
 		/**
@@ -199,7 +203,10 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 		 */
 		public function init() {
 			$this->load_files(
-				[ 'admin/price-calculator' ]
+				[
+					'admin/price-calculator',
+					'admin/sheet-generator',
+				]
 			);
 
 			do_action('product_updater_calculate_new_prices');
@@ -254,6 +261,10 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 		public function product_updater_menu() {
 			if ( ! empty( $_POST['update_prices'] ) ) {
 				wp_schedule_single_event( time(), 'product_updater_calculate_new_prices' );
+			}
+
+			if ( ! empty( $_POST['generate_sheet'] ) ) {
+				wp_schedule_single_event( time(), 'product_updater_generate_orders_sheet' );
 			}
 
 			require_once product_updater()->plugin_dir() . 'includes/admin/templates/dashboard.php';
