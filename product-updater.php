@@ -164,7 +164,9 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 		 * @return void
 		 */
 		public function activation() {
-
+			if ( ! wp_next_scheduled ( 'product_updater_calculate_new_prices' ) ) {
+				wp_schedule_event( time(), 'hourly', 'product_updater_calculate_new_prices' );
+			}
 		}
 
 		/**
@@ -186,7 +188,6 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 			$this->load_files(
                 [
 					'admin/settings',
-					'admin/price-calculator'
                 ]
             );
 		}
@@ -197,7 +198,9 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 		 * @since 1.0.0
 		 */
 		public function init() {
-			$this->load_files();
+			$this->load_files(
+				[ 'admin/price-calculator' ]
+			);
 
 			load_plugin_textdomain( 'product-updater', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		}
@@ -247,7 +250,11 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 		}
 
 		public function product_updater_menu() {
-			echo 'product-updater settings';
+			if ( ! empty( $_POST['update_prices'] ) ) {
+				wp_schedule_single_event( time(), 'product_updater_calculate_new_prices' );
+			}
+
+			require_once product_updater()->plugin_dir() . 'includes/admin/templates/dashboard.php';
 		}
 
 		/**

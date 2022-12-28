@@ -44,7 +44,7 @@ class Settings {
 			[
 				'title'       => __( 'Server Port', 'product_updater' ),
 				'id'          => 'product_update_server_port',
-				'type'        => 'text',
+				'type'        => 'number',
 				'default'     => '',
 				'class'       => '',
 				'css'         => '',
