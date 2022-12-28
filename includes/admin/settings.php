@@ -22,7 +22,7 @@ class Settings {
 		add_action( 'woocommerce_settings_ftp_settings', [ $this, 'display_ftp_settings_tab_content' ] );
 
 		// saving data in single product page.
-		add_action( 'save_post', [ $this, 'save_meta_data' ], 20, 1 );
+		add_action( 'save_post', [ $this, 'save_meta_data' ], 20, 20 );
 	}
 
 	public function display_ftp_settings_tab_content() {
