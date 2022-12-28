@@ -12,7 +12,7 @@ class Price_Calculator {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-//		update_post_meta( 11, 'the_price_is_updated', false );
+//		update_post_meta( 42, 'the_price_is_updated', false );
 //		var_dump(get_post_meta(34,'the_price_is_updated',true));die();
 		add_action( 'product_updater_calculate_new_prices', [ $this, 'calculate_new_prices' ] );
 	}

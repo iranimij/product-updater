@@ -180,7 +180,8 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 		 * @return void
 		 */
 		public function deactivation() {
-
+			wp_clear_scheduled_hook( 'product_updater_generate_orders_sheet' );
+			wp_clear_scheduled_hook( 'product_updater_calculate_new_prices' );
 		}
 
 		/**
@@ -208,8 +209,6 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 					'admin/sheet-generator',
 				]
 			);
-
-			do_action('product_updater_calculate_new_prices');
 
 			load_plugin_textdomain( 'product-updater', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		}
