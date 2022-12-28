@@ -101,7 +101,7 @@ class Settings {
 				'wrapper_class' => 'show_if_simple show_if_variable',
 				'label'         => __( 'For Export', 'product_updater' ),
 				'description'   => __( 'Is it for export or not, it\'s coming from product updater plugin.', 'product_updater' ),
-				'default'       => 'no',
+				'default'       => 'yes',
 			],
 		];
 
