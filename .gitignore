@@ -9,6 +9,7 @@ dist/
 release/
 packages/
 vendor/wp-cli/
+files/
 
 # Compiled Java class files
 *.class

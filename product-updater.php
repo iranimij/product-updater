@@ -259,11 +259,11 @@ if ( ! class_exists( 'Product_Updater' ) ) {
 
 		public function product_updater_menu() {
 			if ( ! empty( $_POST['update_prices'] ) ) {
-				wp_schedule_single_event( time(), 'product_updater_calculate_new_prices' );
+				do_action('product_updater_calculate_new_prices');
 			}
 
 			if ( ! empty( $_POST['generate_sheet'] ) ) {
-				wp_schedule_single_event( time(), 'product_updater_generate_orders_sheet' );
+				do_action('product_updater_generate_orders_sheet');
 			}
 
 			require_once product_updater()->plugin_dir() . 'includes/admin/templates/dashboard.php';
